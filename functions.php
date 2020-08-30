@@ -33,11 +33,11 @@
     define("MG_PLUGIN_URL", plugin_dir_url( __FILE__ ) );
 
     // //Important config files and plugin updates.
-    // include_once ( plugin_dir_path( __FILE__ ) . '/includes/core/config.php' );
+    include_once ( plugin_dir_path( __FILE__ ) . '/includes/core/config.php' );
     // include_once ( plugin_dir_path( __FILE__ ) . '/includes/core/update.php' );
 
      //Make sure to create required mysql tables.
-    // include_once ( plugin_dir_path( __FILE__ ) . '/includes/core/dbhook.php' );
+    include_once ( plugin_dir_path( __FILE__ ) . '/includes/core/dbhook.php' );
 
     // //Includes assets if page is defined.
     // include_once ( plugin_dir_path( __FILE__ ) . '/includes/core/assets.php' );
