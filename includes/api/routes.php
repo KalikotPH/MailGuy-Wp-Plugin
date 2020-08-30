@@ -13,10 +13,6 @@
 
 <?php
 
-    //Require the USocketNet class which have the core function of this plguin. 
-
-    require plugin_dir_path(__FILE__) . '/v1/users/class-send-mail.php'; // Example
-   
 
     // global 
     require plugin_dir_path(__FILE__) . '/v1/class-globals.php'; // Example

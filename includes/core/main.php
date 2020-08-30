@@ -96,8 +96,32 @@
 
     $GLOBALS['gmail-smtp'] = new GMAIL_SMTP();
 
+
+
+    function store_data($to, $subject, $message){
+        global $wpdb;
+
+        $tbl_mailings = MG_MAILINGS;
+        $tbl_mailings_fields = MG_MAILINGS_FILEDS;
+
+        $wpdb->query("START TRANSACTION");
+
+        $result = $wpdb->query($wpdb->prepare( " INSERT INTO $tbl_mailings ($tbl_mailings_fields) VALUES ( '%s', '%s', '%s' ) ",  $to, $subject, $message ));
+        $last_id = $wpdb->insert_id;
+
+        $update_hash_id = $wpdb->query("UPDATE $tbl_mailings SET `hash_id` = SHA2('$last_id', 256) WHERE ID = $last_id ");
+
+        if ($result < 1 || $update_hash_id < 1) {
+            $wpdb->query("ROLLBACK");
+            return false;
+        }else{
+            $wpdb->query("COMMIT");
+            return true;
+        }
+    }
+
     if(!function_exists('wp_mail') && is_gmail_smtp_configured()){
-        
+     
         function wp_mail( $to, $subject, $message, $headers = '', $attachments = array() ) {
             // Compact the input, apply the filters, and extract them back out.
 
@@ -109,6 +133,9 @@
              * @param array $args A compacted array of wp_mail() arguments, including the "to" email,
              *                    subject, message, headers, and attachments values.
              */
+
+            store_data($to, $subject, $message );
+
             $atts = apply_filters( 'wp_mail', compact( 'to', 'subject', 'message', 'headers', 'attachments' ) );
 
             if ( isset( $atts['to'] ) ) {
