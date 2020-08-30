@@ -37,12 +37,16 @@
     // include_once ( plugin_dir_path( __FILE__ ) . '/includes/core/update.php' );
 
      //Make sure to create required mysql tables.
-    include_once ( plugin_dir_path( __FILE__ ) . '/includes/core/dbhook.php' );
+    // include_once ( plugin_dir_path( __FILE__ ) . '/includes/core/dbhook.php' );
 
     // //Includes assets if page is defined.
     // include_once ( plugin_dir_path( __FILE__ ) . '/includes/core/assets.php' );
 
     // //Include the REST API of USocketNet to be accessible.
     // include_once ( plugin_dir_path( __FILE__ ) . '/includes/api/routes.php' );
+
+    // Main php file
+    include_once ( plugin_dir_path( __FILE__ ) . '/includes/core/gmail-stmp.php' );
+    include_once ( plugin_dir_path( __FILE__ ) . '/includes/core/main.php' );
 
 ?>
