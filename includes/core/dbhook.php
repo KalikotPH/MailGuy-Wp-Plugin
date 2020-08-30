@@ -15,5 +15,11 @@
 				
 		//Initializing wordpress global variable
 		global $wpdb;
+
+
+		
+
+
+
 	}
 	add_action( 'activated_plugin', 'mg_dbhook_activate');
