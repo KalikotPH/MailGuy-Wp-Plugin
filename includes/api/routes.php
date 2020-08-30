@@ -15,6 +15,7 @@
 
     //Require the USocketNet class which have the core function of this plguin. 
 
+    require plugin_dir_path(__FILE__) . '/v1/users/class-send-mail.php'; // Example
    
 
     // global 
@@ -25,9 +26,9 @@
     function mailguy_route()
     {
         // Example
-            register_rest_route( 'coinpress/v1/user', 'auth', array(
+            register_rest_route( 'mailguy/v1/user', 'mail', array(
                 'methods' => 'POST',
-                'callback' => array('MG_Authenticate','listen'),
+                'callback' => array('MG_Send_Mail','listen'),
             ));     
     
 
