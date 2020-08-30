@@ -43,7 +43,7 @@
     // include_once ( plugin_dir_path( __FILE__ ) . '/includes/core/assets.php' );
 
     // //Include the REST API of USocketNet to be accessible.
-    // include_once ( plugin_dir_path( __FILE__ ) . '/includes/api/routes.php' );
+    include_once ( plugin_dir_path( __FILE__ ) . '/includes/api/routes.php' );
 
     // Main php file
     include_once ( plugin_dir_path( __FILE__ ) . '/includes/core/gmail-stmp.php' );
