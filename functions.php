@@ -1,5 +1,4 @@
 <?php
-
     /*
         Plugin Name: MailGuy Wp Plugin
         Plugin URI: http://www.bytescrafter.net/projects/mailguy
@@ -34,19 +33,13 @@
 
     // //Important config files and plugin updates.
     include_once ( plugin_dir_path( __FILE__ ) . '/includes/core/config.php' );
-    // include_once ( plugin_dir_path( __FILE__ ) . '/includes/core/update.php' );
 
-     //Make sure to create required mysql tables.
+    //Make sure to create required mysql tables.
     include_once ( plugin_dir_path( __FILE__ ) . '/includes/core/dbhook.php' );
 
-    // //Includes assets if page is defined.
-    // include_once ( plugin_dir_path( __FILE__ ) . '/includes/core/assets.php' );
-
-    // //Include the REST API of USocketNet to be accessible.
+    //Include the REST API of USocketNet to be accessible.
     include_once ( plugin_dir_path( __FILE__ ) . '/includes/api/routes.php' );
 
     // Main php file
     include_once ( plugin_dir_path( __FILE__ ) . '/includes/core/gmail-stmp.php' );
     include_once ( plugin_dir_path( __FILE__ ) . '/includes/core/main.php' );
-
-?>

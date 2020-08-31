@@ -491,5 +491,4 @@
             }
             return $grant_permission;
         }
-    
     }

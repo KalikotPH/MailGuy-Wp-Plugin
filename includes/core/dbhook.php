@@ -10,14 +10,12 @@
      * Here is where you add hook to WP to create our custom database if not found.
 	*/
 
-
 	function mg_dbhook_activate(){
 				
 		//Initializing wordpress global variable
 		global $wpdb;
-
 		$tbl_mailings = MG_MAILINGS;
-		
+
 		$wpdb->query("START TRANSACTION");
 
 		//Database table creation for dv_events
@@ -33,7 +31,6 @@
 				$sql .= ") ENGINE = InnoDB; ";
 			$result = $wpdb->get_results($sql);
 		}
-
 		$wpdb->query("COMMIT");
 
 	}
