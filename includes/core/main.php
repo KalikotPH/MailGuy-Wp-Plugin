@@ -9,10 +9,6 @@
      * @version 0.1.0
      * This is where you provide all the constant config.
     */
-    
-
-
-
         
     function gmail_smtp_get_option(){
         $options = get_option('gmail_smtp_options');
@@ -519,5 +515,4 @@
                 return false;
             }
         }
-        
     }
