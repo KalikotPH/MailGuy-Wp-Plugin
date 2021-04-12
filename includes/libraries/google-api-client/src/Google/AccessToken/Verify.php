@@ -209,7 +209,7 @@ class Google_AccessToken_Verify
 
     if (property_exists($jwtClass, 'leeway')) {
       // adds 1 second to JWT leeway
-      // @see https://github.com/google/google-api-php-client/issues/827
+      // @see https://github.com/google/google-api-client/issues/827
       $jwtClass::$leeway = 1;
     }
 

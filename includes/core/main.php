@@ -165,9 +165,10 @@
                     require_once ABSPATH . WPINC . '/PHPMailer/PHPMailer.php';
                     require_once ABSPATH . WPINC . '/PHPMailer/SMTP.php';
                     require_once ABSPATH . WPINC . '/PHPMailer/Exception.php';
-                    include_once('google-api-php-client/vendor/autoload.php');
-                    include_once('class.phpmaileroauthgoogle.php');
-                    include_once('class.phpmaileroauth.php');
+
+                    include_once(MG_PLUGIN_LIB.'/google-api-client/vendor/autoload.php');
+                    include_once(MG_PLUGIN_LIB.'/google-api-client/class.phpmaileroauthgoogle.php');
+                    include_once(MG_PLUGIN_LIB.'/google-api-client/class.phpmaileroauth.php');
 
                     $options = gmail_smtp_get_option();
                 

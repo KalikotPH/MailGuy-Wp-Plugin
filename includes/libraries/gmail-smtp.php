@@ -12,14 +12,13 @@
 
     class GMAIL_SMTP {
     
-        var $plugin_version = '1.2.0';
         var $phpmailer_version = '6.1.6';
         var $google_api_client_version = '2.2.0';
         var $plugin_url;
         var $plugin_path;
         
         function __construct() {
-            define('MAILGUY_SMTP_VERSION', $this->plugin_version);
+            define('MAILGUY_SMTP_VERSION', MG_PLUGIN_VER);
             define('GMAIL_SMTP_SITE_URL', site_url());
             define('GMAIL_SMTP_HOME_URL', home_url());
             define('MAILGUY_SMTP_URL',  MG_PLUGIN_URL );
@@ -35,7 +34,7 @@
             //vendor/google/apiclient-services/src/Google/Service was taking too much space. The plugin only needed to keep the "Gmail.php" file in it.
             //do a cleanup in both the PHPMailer & Google API Client folders to remove all the git related unnecessary files.
             /* Only include these scripts when needed to avoid conflicts with other plugins that are using Google API Client
-            include_once('google-api-php-client/vendor/autoload.php');
+            include_once('google-api-client/vendor/autoload.php');
             include_once('PHPMailer/PHPMailerAutoload.php');
             include_once('class.phpmaileroauthgoogle.php');
             include_once('class.phpmaileroauth.php');
@@ -61,7 +60,6 @@
                 return $this->plugin_url;
             // return $this->plugin_url = plugins_url(basename(plugin_dir_path(__FILE__)), basename(__FILE__));
             return $this->plugin_url = plugins_url(basename(plugin_dir_path(__FILE__)), basename(__FILE__));
-           
         }
     
         function plugin_path() {
@@ -82,12 +80,14 @@
         }
     
         function options_page() {
+
             $plugin_tabs = array(
                 'gmail-smtp-settings' => __('General', 'gmail-smtp'),
                 'gmail-smtp-settings&action=test-email' => __('Test Email', 'gmail-smtp'),
                 'gmail-smtp-settings&action=revoke-access' => __('Revoke Access', 'gmail-smtp'),
                 'gmail-smtp-settings&action=server-info' => __('Server Info', 'gmail-smtp'),
             );
+
             // $url = "https://wphowto.net/gmail-smtp-plugin-for-wordpress-1341";
             // $link_text = sprintf(wp_kses(__('Please visit the <a target="_blank" href="%s">Gmail SMTP</a> documentation page for usage instructions.', 'gmail-smtp'), array('a' => array('href' => array(), 'target' => array()))), esc_url($url));
             echo '<div class="wrap"><h2>MailGuy SMTP v' . MAILGUY_SMTP_VERSION . '</h2>';
@@ -134,8 +134,8 @@
             if(is_admin()){
                 if(isset($_GET['action']) && $_GET['action'] == "oauth_grant"){
                     
-                    include_once('google-api-php-client/vendor/autoload.php');
-                    include_once('class.phpmaileroauthgoogle.php');
+                    include_once(MG_PLUGIN_LIB.'/google-api-client/vendor/autoload.php');
+                    include_once(MG_PLUGIN_LIB.'/google-api-client/class.phpmaileroauthgoogle.php');
                     
                     if (isset($_GET['code'])) {
                         $authCode = $_GET['code'];

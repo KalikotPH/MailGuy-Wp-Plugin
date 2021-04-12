@@ -1,6 +1,6 @@
 # MailGuy - WordPress Plugin
 
-In this project, we will try to make our own cryptocurrency yet centralized. That's it for now and Good Luck!
+In this project, we will try to make our own mail sending plugin for WordPress. That's it for now and Good Luck!
 
 ## Contributing
 
@@ -23,4 +23,3 @@ This project is licensed under the GNU GPL License - see the [LICENSE](LICENSE) 
 ## Acknowledgments
 
 * WordPress.Org
-* BitCoin.Org

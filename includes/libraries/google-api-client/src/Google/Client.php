@@ -35,12 +35,12 @@ use Monolog\Handler\SyslogHandler as MonologSyslogHandler;
 
 /**
  * The Google API Client
- * https://github.com/google/google-api-php-client
+ * https://github.com/google/google-api-client
  */
 class Google_Client
 {
   const LIBVER = "2.2.0";
-  const USER_AGENT_SUFFIX = "google-api-php-client/";
+  const USER_AGENT_SUFFIX = "google-api-client/";
   const OAUTH2_REVOKE_URI = 'https://accounts.google.com/o/oauth2/revoke';
   const OAUTH2_TOKEN_URI = 'https://www.googleapis.com/oauth2/v4/token';
   const OAUTH2_AUTH_URL = 'https://accounts.google.com/o/oauth2/auth';
@@ -998,7 +998,7 @@ class Google_Client
 
   protected function createDefaultLogger()
   {
-    $logger = new Logger('google-api-php-client');
+    $logger = new Logger('google-api-client');
     if ($this->isAppEngine()) {
       $handler = new MonologSyslogHandler('app', LOG_USER, Logger::NOTICE);
     } else {
@@ -1096,7 +1096,7 @@ class Google_Client
     // implementation is naive, and the cache keys do not account for user
     // sessions.
     //
-    // @see https://github.com/google/google-api-php-client/issues/821
+    // @see https://github.com/google/google-api-client/issues/821
     return Google_AuthHandler_AuthHandlerFactory::build(
         $this->getCache(),
         $this->config['cache_config']
