@@ -20,6 +20,7 @@
         register_rest_route( 'mailguy/v1/user', 'mail', array(
             'methods' => 'POST',
             'callback' => array('MG_Send_Mail','listen'),
+            'permission_callback' => '__return_true'
         ));     
 
     }
